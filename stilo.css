@@ -802,7 +802,7 @@ body {
   z-index: 1;
   position: relative;
   margin-right: 4em;
-  padding-top: 6rem;
+  padding-top: 10rem;
   height: 75vh;
   display: grid;
 }
@@ -918,13 +918,14 @@ body {
   margin: 1em;
   padding-left: 6em;
   padding-right: 6em;
-  padding-top: 1.5rem;
+  padding-top: 10rem;
 }
 
 .Title_About {
   padding-left: 2em;
   font-size: 1.6rem;
   color: #727272;
+  padding-bottom: 1em;
   animation: byBottom 1s ease both;
 }
 
@@ -976,8 +977,7 @@ body {
 .Container_Theme {
   font-family: "Quicksand";
   text-align: center;
-  padding-left: 10em;
-  padding-right: 10em;
+  padding: 0 10rem;
   display: grid;
   margin: 0 auto;
   gap: 1.2em;
