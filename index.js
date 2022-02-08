@@ -1,4 +1,4 @@
-consoleText(['HTML', 'CSS', 'JavaScript', 'PHP', 'MongoDB', 'PostGresdb', 'Python', 'Django', 'Entre otros.'],
+consoleText(['HTML', 'CSS', 'JavaScript', 'PHP', 'MongoDB', 'PostgreSQL', 'Python', 'Django', 'Entre otros.'],
     'text', ['tomato', 'rebeccapurple', 'lightblue', 'Orange', 'Red', 'Green', 'Yellow', 'LightOrange']);
 
 function consoleText(words, id, colors) {
