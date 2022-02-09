@@ -7,6 +7,14 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: var(--padding-container);
+}
+
 #stars {
   width: 1px;
   height: 1px;
@@ -977,7 +985,6 @@ body {
 .Container_Theme {
   font-family: "Quicksand";
   text-align: center;
-  padding: 0 10rem;
   display: grid;
   margin: 0 auto;
   gap: 1.2em;
