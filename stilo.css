@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap");
 
+:root {
+  --padding-container: 100px 0;
+  --color-title: #2ec400;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -986,7 +991,6 @@ body {
   font-family: "Quicksand";
   text-align: center;
   display: grid;
-  margin: 0 auto;
   gap: 1.2em;
   overflow: hidden;
   grid-template-columns: repeat(auto-fit, minmax(250px, auto));
