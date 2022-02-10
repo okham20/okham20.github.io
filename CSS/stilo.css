@@ -927,7 +927,6 @@ body {
 }
 
 .About {
-  z-index: 100;
   padding-top: 10rem;
 }
 
@@ -986,6 +985,7 @@ body {
 
 .Container_Theme {
   font-family: "Quicksand";
+  padding: 0 9rem 0 5.5rem;
   text-align: center;
   display: grid;
   gap: 1.2em;
@@ -1013,3 +1013,4 @@ body {
   color: #808080;
   font-size: 1rem;
 }
+
