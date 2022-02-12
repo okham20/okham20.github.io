@@ -1,187 +1,115 @@
-(function () {
 
-    var width, height, largeHeader, canvas, ctx, points, target, animateHeader = true;
 
-    // Main
-    initHeader();
-    initAnimation();
-    addListeners();
+let scrollYPos = window.scrollY;
 
-    function initHeader() {
-        width = window.innerWidth;
-        height = window.innerHeight;
-        target = { x: width / 2, y: height / 2 };
+const scollDownElement = document.querySelector('.scroll-down span');
 
-        largeHeader = document.getElementById('large-header');
-        largeHeader.style.height = height + 'px';
+window.setInterval(() => {
+    scrollYPos = window.scrollY;
+    if (scrollYPos > 0) {
+        scollDownElement.classList.add('unvisible');
+    }
+}, 20);
 
-        canvas = document.getElementById('demo-canvas');
-        canvas.width = width;
-        canvas.height = height;
-        ctx = canvas.getContext('2d');
-
-        // create points
-        points = [];
-        for (var x = 0; x < width; x = x + width / 20) {
-            for (var y = 0; y < height; y = y + height / 20) {
-                var px = x + Math.random() * width / 20;
-                var py = y + Math.random() * height / 20;
-                var p = { x: px, originX: px, y: py, originY: py };
-                points.push(p);
-            }
+const createScaleY = (x1, y1, x2, y2) => {
+    const slope = (y2 - y1) / (x2 - x1);
+    return y3 => {
+        if (slope === 0) {
+            return null;
         }
 
-        // for each point find the 5 closest points
-        for (var i = 0; i < points.length; i++) {
-            var closest = [];
-            var p1 = points[i];
-            for (var j = 0; j < points.length; j++) {
-                var p2 = points[j]
-                if (!(p1 == p2)) {
-                    var placed = false;
-                    for (var k = 0; k < 5; k++) {
-                        if (!placed) {
-                            if (closest[k] == undefined) {
-                                closest[k] = p2;
-                                placed = true;
-                            }
-                        }
+        return (y3 - y1) / slope + x1;
+    };
+};
+
+const parallaxElements = configs => {
+
+    const interpolation = (end, start) => (end - start) * 0.2;
+
+    const createAnimatable = () => {
+        return config => {
+            let curValue = null;
+            let endValue = null;
+            return {
+                animateElement: () => {
+                    console.log(endValue, curValue);
+                    curValue += interpolation(endValue, curValue);
+                    if (typeof curValue === 'number') {
+                        config.element.style.transform = config.setStyle(curValue.toFixed(3));
+                    }
+                },
+                calculateElementStyle: () => {
+                    const scale = config.calScale();
+                    const tmpEndValue = scale(scrollYPos);
+                    if (typeof tmpEndValue !== 'number') {
+                        return;
                     }
 
-                    for (var k = 0; k < 5; k++) {
-                        if (!placed) {
-                            if (getDistance(p1, p2) < getDistance(p1, closest[k])) {
-                                closest[k] = p2;
-                                placed = true;
-                            }
-                        }
+                    if (endValue === null) {
+                        curValue = tmpEndValue;
                     }
+                    endValue = tmpEndValue;
                 }
-            }
-            p1.closest = closest;
-        }
+            };
 
-        // assign a circle to each point
-        for (var i in points) {
-            var c = new Circle(points[i], 2 + Math.random() * 2, 'rgba(255,255,255,0.3)');
-            points[i].circle = c;
-        }
-    }
-
-    // Event handling
-    function addListeners() {
-        if (!('ontouchstart' in window)) {
-            window.addEventListener('mousemove', mouseMove);
-        }
-        window.addEventListener('scroll', scrollCheck);
-        window.addEventListener('resize', resize);
-    }
-
-    function mouseMove(e) {
-        var posx = posy = 0;
-        if (e.pageX || e.pageY) {
-            posx = e.pageX;
-            posy = e.pageY;
-        }
-        else if (e.clientX || e.clientY) {
-            posx = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
-            posy = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
-        }
-        target.x = posx;
-        target.y = posy;
-    }
-
-    function scrollCheck() {
-        if (document.body.scrollTop > height) animateHeader = false;
-        else animateHeader = true;
-    }
-
-    function resize() {
-        width = window.innerWidth;
-        height = window.innerHeight;
-        largeHeader.style.height = height + 'px';
-        canvas.width = width;
-        canvas.height = height;
-    }
-
-    // animation
-    function initAnimation() {
-        animate();
-        for (var i in points) {
-            shiftPoint(points[i]);
-        }
-    }
-
-    function animate() {
-        if (animateHeader) {
-            ctx.clearRect(0, 0, width, height);
-            for (var i in points) {
-                // detect points in range
-                if (Math.abs(getDistance(target, points[i])) < 4000) {
-                    points[i].active = 0.3;
-                    points[i].circle.active = 0.6;
-                } else if (Math.abs(getDistance(target, points[i])) < 20000) {
-                    points[i].active = 0.1;
-                    points[i].circle.active = 0.3;
-                } else if (Math.abs(getDistance(target, points[i])) < 40000) {
-                    points[i].active = 0.02;
-                    points[i].circle.active = 0.1;
-                } else {
-                    points[i].active = 0;
-                    points[i].circle.active = 0;
-                }
-
-                drawLines(points[i]);
-                points[i].circle.draw();
-            }
-        }
-        requestAnimationFrame(animate);
-    }
-
-    function shiftPoint(p) {
-        TweenLite.to(p, 1 + 1 * Math.random(), {
-            x: p.originX - 50 + Math.random() * 100,
-            y: p.originY - 50 + Math.random() * 100, ease: Circ.easeInOut,
-            onComplete: function () {
-                shiftPoint(p);
-            }
-        });
-    }
-
-    // Canvas manipulation
-    function drawLines(p) {
-        if (!p.active) return;
-        for (var i in p.closest) {
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(p.closest[i].x, p.closest[i].y);
-            ctx.strokeStyle = 'rgba(156,217,249,' + p.active + ')';
-            ctx.stroke();
-        }
-    }
-
-    function Circle(pos, rad, color) {
-        var _this = this;
-
-        // constructor
-        (function () {
-            _this.pos = pos || null;
-            _this.radius = rad || null;
-            _this.color = color || null;
-        })();
-
-        this.draw = function () {
-            if (!_this.active) return;
-            ctx.beginPath();
-            ctx.arc(_this.pos.x, _this.pos.y, _this.radius, 0, 2 * Math.PI, false);
-            ctx.fillStyle = 'rgba(156,217,249,' + _this.active + ')';
-            ctx.fill();
         };
-    }
+    };
 
-    // Util
-    function getDistance(p1, p2) {
-        return Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2);
-    }
 
-})();
+    const animatableItems = configs.map(createAnimatable());
+
+    const play = () => {
+        animatableItems.forEach(item => {
+            item.calculateElementStyle();
+            item.animateElement();
+        });
+        requestAnimationFrame(play);
+    };
+
+    return {
+        play
+    };
+
+};
+
+const floorElement = document.querySelector('.floor');
+const layer4Element = document.querySelector('.layer:nth-of-type(2)');
+const layer3Element = document.querySelector('.layer:nth-of-type(3)');
+const layer2Element = document.querySelector('.layer:nth-of-type(4)');
+const layer1Element = document.querySelector('.layer:nth-of-type(5)');
+const layer0Element = document.querySelector('.layer:nth-of-type(6)');
+
+
+const animation = parallaxElements([{
+    element: floorElement,
+    setStyle: value => `translate3d(0px, 0px, 0px) scaleY(${value})`,
+    calScale: () => createScaleY(1, 0, -1, 914)
+},
+{
+    element: layer4Element,
+    setStyle: value => `translate3d(-50%, ${value}px, 0px)`,
+    calScale: () => createScaleY(0, 0, 410, 914)
+},
+{
+    element: layer3Element,
+    setStyle: value => `translate3d(-50%, ${value}px, 0px)`,
+    calScale: () => createScaleY(0, 0, 165, 914)
+},
+{
+    element: layer2Element,
+    setStyle: value => `translate3d(-50%, ${value}px, 0px)`,
+    calScale: () => createScaleY(0, 0, -130, 914)
+},
+{
+    element: layer1Element,
+    setStyle: value => `translate3d(-50%, ${value}px, 0px)`,
+    calScale: () => createScaleY(0, 0, -475, 914)
+},
+{
+    element: layer0Element,
+    setStyle: value => `translate3d(-50%, ${value}px, 0px)`,
+    calScale: () => createScaleY(0, 0, -900, 914)
+}]);
+
+
+animation.play();
