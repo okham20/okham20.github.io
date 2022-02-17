@@ -5,37 +5,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/pruebas.css">
+    <script src="https://kit.fontawesome.com/22a36770be.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
-    <div>
-        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
-          <defs>
-            <filter id="goo">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-              <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
-              <feComposite in="SourceGraphic" in2="goo"/>
-            </filter>
-          </defs>
-        </svg>
-        
-        <span class="button--bubble__container">
-          <a href="#campaign" class="button button--bubble">
-            Hover me
+  <main>
+
+  <div class="gallery">
+      <ul class="ul">
+        <li class="li">
+            <a href="#" class="a" title="Imagen 1">
+                <img src="images/certificado_gns3.jpg" alt="Imagen 1" class="img" loading="lazy">
+            </a>
+        </li>
+        <li class="li">
+            <a href="#" class="a" title="Imagen 2">
+                <img src="images/certificado_red.jpg" alt="Imagen 2" class="img" loading="lazy">
+            </a>
+        </li>
+        <li class="li">
+            <a href="#" class="a" title="Imagen 3">
+                <img src="images/certificado_gns3.jpg" alt="Imagen 3" class="img" loading="lazy">
+            </a>
+        </li>
+        <li class="li">
+          <a href="#" class="a" title="Imagen 4">
+              <img src="images/certificado_gns3.jpg" alt="Imagen 3" class="img" loading="lazy">
           </a>
-          <span class="button--bubble__effect-container">
-            <span class="circle top-left"></span>
-            <span class="circle top-left"></span>
-            <span class="circle top-left"></span>
-        
-            <span class="button effect-button"></span>
-        
-            <span class="circle bottom-right"></span>
-            <span class="circle bottom-right"></span>
-            <span class="circle bottom-right"></span>
-          </span>
-        </span>
-        </div>
-<script src="JS/button.js"></script>
+      </li>
+      <li class="li">
+        <a href="#" class="a" title="Imagen 5">
+            <img src="images/certificado_gns3.jpg" alt="Imagen 3" class="img" loading="lazy">
+        </a>
+    </li>
+    </ul>
+    </div>
+  
+  <div class="lightbox">
+    <span class="cerrar" style="font-size: 1em; color: #2ec400">
+      <i class="fa-solid fa-circle-xmark"></i>
+    </span>
+      <img src="" alt="Imagen 1" class="grande" loading="lazy">
+</div>
+
+  </main>
+  <script src="JS/button.js"></script>
 </body>
 </html>

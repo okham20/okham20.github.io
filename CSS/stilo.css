@@ -816,7 +816,7 @@ body {
   position: relative;
   margin-right: 4em;
   padding-top: 10rem;
-  height: 75vh;
+  height: 80vh;
   display: grid;
 }
 .title {
@@ -1016,6 +1016,7 @@ body {
 
 .formacion_title {
   font-family: "Quicksand";
+  font-size: 1.4rem;
   text-align: center;
   position: relative;
   color: #808080;
@@ -1137,4 +1138,88 @@ body {
     -ms-filter: hue-rotate(360deg);
     filter: hue-rotate(360deg);
   }
+}
+
+.knowledge__picture {
+  max-width: 800px;
+}
+
+.img_cert {
+  width: 100%;
+}
+
+.link {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  padding: 10px 0;
+  color: #fff;
+}
+.link-wrapper {
+  position: relative;
+  display: block;
+  padding: 20px 0;
+}
+.inner-wrapper {
+  position: relative;
+  display: inline-block;
+}
+.wrapper-15:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background-color: #37d631;
+  transform: scaleY(0);
+  transform-origin: top left;
+  transition: transform 0.3s;
+}
+.wrapper-15:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 3px;
+  height: 100%;
+  background-color: #37d631;
+  transform: scaleY(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s;
+}
+.wrapper-15 .hover-15 {
+  padding: 10px;
+}
+.wrapper-15 .hover-15:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #37d631;
+  transform: scaleX(0);
+  transform-origin: top left;
+  transition: transform 0.3s;
+}
+.wrapper-15 .hover-15:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #37d631;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s;
+}
+.wrapper-15:hover:before,
+.wrapper-15:hover:after {
+  transform: scaleY(1);
+}
+.wrapper-15:hover .hover-15:before,
+.wrapper-15:hover .hover-15:after {
+  transform: scaleX(1);
 }

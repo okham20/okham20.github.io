@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="images/a2.png" type="image/x-icon">
     <link rel="stylesheet" href="CSS/normalize.css">
     <link rel="stylesheet" href="CSS/stilo.css">
+    <link rel="stylesheet" href="CSS/gallery.css">
     <script src="https://kit.fontawesome.com/22a36770be.js" crossorigin="anonymous"></script>
     <title>OACO</title>
 </head>
@@ -22,7 +23,7 @@
         <section>
           <div class="About container">
             <h1 class="Title_About">Un poco sobre<span> mi.</span> </h1>
-            <p class="Paragraph_About">
+            <p class="Paragraph_About" loading="lazy">
               ¡Hola! Mi nombre es Alejandro y aunque termine la carrera de Ingeniería en comunicaciones y electrónica
               decidí incrementar mis conocimientos en los temas de desarrollo WEB y esto a base de la pandemia.
               Necesitaba encontrar algo que pudiera seguir haciendo y seguir aprendiendo desde casa, por ello tomé
@@ -54,7 +55,7 @@
               <i class="fas fa-database"></i>
             </span>
             <h3 class="icon_title">Bases de Datos</h3>
-            <p class="icon_paragraph">Usar bases de datos para aplicaciónes WEB SQL y no SQL, como PostGresDB, Django y MongoDB.</p>
+            <p class="icon_paragraph">Uso de bases de datos SQL y no SQL para aplicaciónes WEB y CRUD, como PostgreSQL, Django y MongoDB.</p>
           </article>
 
           <article class="icons">
@@ -97,11 +98,65 @@
             <a href="formacion.html" target="_blank" class="button">Formación</a>
           </span>
         </div>
+
+        <div id='stars'></div>
+        <div id='stars2'></div>
+        <div id='stars3'></div>
+
+<section>
+  <h2 class="title_certif">Mis certificados Udemy</h2>
+        <div class="gallery container">
+
+          <ul class="ul">
+            <li class="li">
+                <a href="#" class="a" title="Imagen 1">
+                    <img src="images/certificado_gns3.jpg" alt="Imagen 1" class="img" loading="lazy">
+                </a>
+            </li>
+            <li class="li">
+                <a href="#" class="a" title="Imagen 2">
+                    <img src="images/certificado_red.jpg" alt="Imagen 2" class="img" loading="lazy">
+                </a>
+            </li>
+            <li class="li">
+                <a href="#" class="a" title="Imagen 3">
+                    <img src="images/certificado_gns3.jpg" alt="Imagen 3" class="img" loading="lazy">
+                </a>
+            </li>
+            <li class="li">
+              <a href="#" class="a" title="Imagen 4">
+                  <img src="images/certificado_gns3.jpg" alt="Imagen 3" class="img" loading="lazy">
+              </a>
+          </li>
+          <li class="li">
+            <a href="#" class="a" title="Imagen 5">
+                <img src="images/certificado_gns3.jpg" alt="Imagen 3" class="img" loading="lazy">
+            </a>
+        </li>
+        </ul>
+        </div>
+      
+      <div class="lightbox">
+        <button class="cerrar"><span style="font-size: 2.2em; color: #4b4b4b">
+          <i class="fas fa-times-circle"></i>
+        </span>
+      </button>
+          <img src="" alt="Imagen 1" class="grande" loading="lazy">
+    </div>
+</section>
         
+       
+<div class="link-wrapper">
+  <span class="inner-wrapper wrapper-15">
+      <a class="link hover-15" href="https://correoipn-my.sharepoint.com/:b:/g/personal/oclavelo1500_alumno_ipn_mx/ETs7GCRy_G5MoNXTgMtEGTgB7RYZJPpkrj_lQvHpx9kXqw?e=2BL4o9" target="_blank">Carta de pasante</a>
+  </span>
+</div>
+        <br>
         <a href="pruebas.html" target="_blank">pruebas acá</a>
 </main>
 
 </body>
 <script src="JS/index.js"></script>
+<script src="JS/gallery.js"></script>
 
 </html>
