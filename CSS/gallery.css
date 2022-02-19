@@ -271,11 +271,6 @@ svg {
   transition: all 0.4s ease;
   border-radius: 1em;
   background-color: var(--blanco);
-  -webkit-box-shadow: -1em -1em 2em var(--sombra-ppal),
-    1em 1em 2em var(--sombra-sec), inset 0 0 0 transparent,
-    inset 0 0 0 transparent;
-  box-shadow: 1em 1em 2em var(--sombra-ppal), 1em 1em 2em var(--sombra-sec),
-    inset 0 0 0 transparent, inset 0 0 0 transparent;
 }
 
 .ul .li {
@@ -285,12 +280,6 @@ svg {
   transition: all 0.4s ease;
   border-radius: 1em;
   background-color: var(--blanco);
-  -webkit-box-shadow: 0.8em 0.8em 1.6em var(--sombra-ppal),
-    -0.8em -0.8em 1.6em var(--sombra-sec), inset 0 0 0 transparent,
-    inset 0 0 0 transparent;
-  box-shadow: 0.8em 0.8em 1.6em var(--sombra-ppal),
-    -0.8em -0.8em 1.6em var(--sombra-sec), inset 0 0 0 transparent,
-    inset 0 0 0 transparent;
 }
 
 .ul .img {
