@@ -19,6 +19,7 @@ body {
   display: flex;
   align-items: center;
   font-family: var(--fontall);
+  position: static;
 }
 
 .nav__logo {
@@ -37,10 +38,6 @@ body {
   grid-auto-flow: column;
   grid-auto-columns: max-content;
   gap: 2em;
-}
-
-.nav__close {
-  display: var(--show, none);
 }
 
 .hov::before {
@@ -62,7 +59,7 @@ body {
   bottom: 0;
   left: 0;
   inset: 0 0 0 0;
-  background: #3fb41c;
+  background: #1c6e00;
   z-index: -1;
   transition: transform 0.3s ease;
 }
@@ -74,11 +71,16 @@ body {
 
 .nav__items {
   list-style: none;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  gap: 0.3em;
 }
 
 .nav__links {
   color: rgb(202, 202, 202);
   text-decoration: none;
+  font-weight: 400;
 }
 
 .nav__menu {

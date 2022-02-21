@@ -14,32 +14,33 @@
 
 <header>
   <nav class="nav container">
-    <div class="nav__logo">
-      <h2 class="nav__title">OACO</h2>
-    </div>
 
     <ul class="nav__link nav__link__menu">
         <li class="nav__items">
-            <a href="#" class="nav__links hov">Sobre mi</a>
+          <span class="nav__icon" style="font-size: 1em; color: #2ec400">
+            <i class="fas fa-user"></i>
+          </span>
+            <a href="#sobremi" class="nav__links hov">Sobre mi</a>
         </li>
         <li class="nav__items">
-            <a href="#1ra" class="nav__links hov">Habilidades</a>
+          <span class="nav__icon" style="font-size: 1em; color: #2ec400">
+            <i class="fas fa-shapes"></i>
+          </span>
+            <a href="#habilidad" class="nav__links hov">Habilidades</a>
         </li>
         <li class="nav__items">
-            <a href="#2da" class="nav__links hov">Formación</a>
+          <span class="nav__icon" style="font-size: 1em; color: #2ec400">
+            <i class="fas fa-graduation-cap"></i>
+          </span>
+            <a href="#formacion" class="nav__links hov">Formación</a>
         </li>
         <li class="nav__items">
-            <a href="#3ra" class="nav__links hov">Contacto</a>
+          <span class="nav__icon" style="font-size: 1em; color: #2ec400">
+            <i class="fas fa-certificate"></i>
+          </span>
+            <a href="#certificados" class="nav__links hov">Certificados</a>
         </li>
 
-        <span style="font-size: 2em; color: white;">
-          <a href="" class="nav__close"><i class="far fa-times-circle"></i></a>
-        </span>
-    </ul>
-
-    <div class="nav__menu">
-        <img src="images/menu.svg" alt="" class="nav__img">
-    </div>
 </nav>
 </header>
 <body>
@@ -52,7 +53,7 @@
         </section>
 <main>
         <section>
-          <div class="About container">
+          <div class="About container" id="sobremi">
             <h1 class="Title_About">Un poco sobre<span> mi.</span> </h1>
             <p class="Paragraph_About" loading="lazy">
               ¡Hola! Mi nombre es Alejandro y aunque termine la carrera de Ingeniería en comunicaciones y electrónica
@@ -72,7 +73,7 @@
           </div>
         </section>
 
-        <div class="Container_Theme container">
+        <div class="Container_Theme container" id="habilidad">
           <article class="icons">
             <span style="font-size: 3em; color: #2ec400">
               <i class="far fa-window-maximize"></i>
@@ -122,7 +123,7 @@
           </article>
         </div>
 
-        <div class="container color_efect">
+        <div class="container color_efect" id="formacion">
           <h2 class="formacion_title">Conoce un poco más sobre mi formación academica.</h2>
           <br>
           <span class="container_button">
@@ -135,8 +136,9 @@
         <div id='stars3'></div>
 
 <section>
+  <div class="container" id="certificados">
   <h2 class="title_certif">Mis certificados Udemy</h2>
-        <div class="gallery container">
+        <div class="gallery">
 
           <ul class="ul">
             <li class="li">
@@ -161,6 +163,7 @@
       </button>
           <img src="" alt="Imagen 1" class="grande" loading="lazy">
     </div>
+  </div>
 </section>
         
        
