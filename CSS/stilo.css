@@ -3,13 +3,97 @@
 :root {
   --padding-container: 100px 0;
   --color-title: #2ec400;
+  --fontall: "Quicksand";
 }
 
 body {
   margin: 0;
   padding: 0;
   background-color: #1b1b1b;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Quicksand", sans-serif;
+}
+
+.nav {
+  --padding-container: 20px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-family: var(--fontall);
+}
+
+.nav__logo {
+  padding: 0 0;
+  margin-bottom: 0;
+}
+
+.nav__title {
+  font-weight: 300;
+}
+
+.nav__link {
+  margin-left: auto;
+  padding: 0;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  gap: 2em;
+}
+
+.nav__close {
+  display: var(--show, none);
+}
+
+.hov::before {
+  transform: scaleX(0);
+  transform-origin: bottom right;
+}
+
+.hov:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.hov::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  inset: 0 0 0 0;
+  background: #3fb41c;
+  z-index: -1;
+  transition: transform 0.3s ease;
+}
+
+.hov {
+  position: relative;
+  font-size: 1rem;
+}
+
+.nav__items {
+  list-style: none;
+}
+
+.nav__links {
+  color: rgb(202, 202, 202);
+  text-decoration: none;
+}
+
+.nav__menu {
+  margin-left: auto;
+  cursor: pointer;
+  display: none;
+}
+
+.nav__img {
+  display: block;
+  width: 30px;
+}
+
+.nav__close {
+  display: var(--show, none);
 }
 
 .container {
