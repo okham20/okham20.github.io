@@ -20,6 +20,7 @@ body {
   align-items: center;
   font-family: var(--fontall);
   position: static;
+  animation: byBottom 1s ease both;
 }
 
 .nav__logo {
