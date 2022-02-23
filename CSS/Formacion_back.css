@@ -14,12 +14,11 @@
 }
 
 .context h1 span {
-  color: rgb(20, 0, 94);
   text-transform: uppercase;
 }
 
 .area {
-  background: #0a4277;
+  background-color: rgb(15, 69, 150);
   background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
   width: 100%;
   height: 100vh;
