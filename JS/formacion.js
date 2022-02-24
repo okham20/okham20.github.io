@@ -1,11 +1,10 @@
-var text = document.getElementById("rainbow").innerHTML // YOUR TEXT
-var speed = 80 // SPEED OF FADE
+//var text = document.getElementById("rainbow").innerHTML // YOUR TEXT
+var speed = 85 // SPEED OF FADE
 
 // ********** LEAVE THE NEXT BIT ALONE!
 
 if (document.getElementById) {
-    document.write('<span>' + text + '</span>')
-    var storetext = document.getElementById ? document.getElementById("rainbow") : document.highlight
+    var storetext = document.getElementById ? document.getElementById("rainbow") : document.rainbow
 }
 else
     document.write(text)

@@ -1,5 +1,21 @@
-.rainbow {
-  animation-name: rainbow;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap");
+
+:root {
+  --padding-container: 2rem;
+}
+
+body {
+  font-family: "Quicksand";
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: var(--padding-container);
+}
+
+.main_formacion {
+  background-color: gray;
 }
